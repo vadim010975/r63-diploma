@@ -1,0 +1,23 @@
+.form_search {
+  position: relative;
+}
+
+.form-reset-btn, .form-reset-btn:focus {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: red;
+}
+
+.form-reset-btn:focus {
+  outline: none;
+}
+
+.form-reset-btn.hide {
+  display: none;
+}
