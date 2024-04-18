@@ -9,12 +9,16 @@ import {
   addCatalog,
   hideBtn,
   renderBtn,
+  clearCatalog,
 } from "./catalogSlice";
 
 export const fetchCatalogThunk =
   (offset: number | null = null): ThunkAction<void, RootState, unknown, UnknownAction> =>
   async (dispatch, getState) => {
     try {
+      if (!offset) {
+        dispatch(clearCatalog());
+      }
       dispatch(catalogLoadingStarted());
       const q = getState().catalog.search;
       const categoryId = getState().catalog.selectedCategoryId;

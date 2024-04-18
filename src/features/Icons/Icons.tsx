@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { setSearch } from "../Catalog/catalogSlice";
 import { useNavigate } from "react-router-dom";
 import { selectCart } from "../Cart/cartSlice";
+import { fetchCatalogThunk } from "../Catalog/fetchCatalogThunk";
 
 export default function Icons() {
 
@@ -47,6 +48,7 @@ export default function Icons() {
     const searchWord = (data.search as string).trim();
     if (searchWord) {
       dispatch(setSearch(searchWord));
+      dispatch(fetchCatalogThunk());
       navigate("/catalog.html");
       form.reset();
     }

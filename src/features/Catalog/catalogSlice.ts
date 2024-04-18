@@ -65,6 +65,9 @@ export const catalogSlice = createSlice({
     },
     setSearch(state, action) {
       state.search = action.payload;
+    },
+    clearCatalog(state) {
+      state.items = [];
     }
   }
 });
@@ -83,6 +86,7 @@ export const {
   renderBtn,
   hideBtn,
   setSearch,
+  clearCatalog,
 } = catalogSlice.actions;
 
 export default catalogSlice.reducer;

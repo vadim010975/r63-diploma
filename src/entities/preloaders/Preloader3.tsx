@@ -1,8 +1,10 @@
 export default function Preloader3() {
 
   return (
-    <div className="spinner-border text-primary" role="status">
-      <span className="visually-hidden"></span>
+    <div className="d-flex justify-content-center">
+      <div className="spinner-border text-primary" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
     </div>
   );
 }

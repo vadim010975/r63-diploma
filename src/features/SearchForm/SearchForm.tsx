@@ -12,8 +12,9 @@ export default function SearchForm() {
   const [btnVisibility, setBtnVisibility] = useState<boolean>(false);
 
   useEffect(() => {
-    setData({search: search});
-    dispatch(fetchCatalogThunk());
+    if (search) {
+      setData({search});
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
@@ -37,8 +38,11 @@ export default function SearchForm() {
   }
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
-    dispatch(setSearch(""));
     setData({ search: "" });
+    if (search) {
+      dispatch(setSearch(""));
+      dispatch(fetchCatalogThunk());
+    }
   }
 
   const handleUpdatePostField: React.FormEventHandler<HTMLInputElement | HTMLTextAreaElement> = (event) => {
