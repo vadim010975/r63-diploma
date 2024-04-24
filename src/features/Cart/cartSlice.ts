@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { ProductCart } from "../../entities/Service";
-import { saveLocalStorage } from "../../entities/Service/api";
+import { BosaNogaAPI, ProductCart } from "../../entities/Service";
 
 export interface CartState {
   products: ProductCart[],
@@ -22,14 +21,18 @@ export const cartSlice = createSlice({
       } else {
         state.products.push(action.payload);
       }
-      saveLocalStorage(state.products);
+      BosaNogaAPI.saveLocalStorage(state.products);
     },
     removeProduct(state, action) {
       state.products = state.products.filter(product => !(product.id === action.payload.id && product.size === action.payload.size));
-      saveLocalStorage(state.products);
+      BosaNogaAPI.saveLocalStorage(state.products);
     },
     setCart(state, action) {
       state.products = action.payload;
+    },
+    clearCart(state) {
+      state.products = [];
+      BosaNogaAPI.saveLocalStorage(state.products);
     }
   },
 });

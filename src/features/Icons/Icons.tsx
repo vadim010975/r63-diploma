@@ -22,8 +22,7 @@ export default function Icons() {
       return;
     }
     setCartActivity(false);
-    navigate("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, [products]);
 
   const handleClick: React.MouseEventHandler<HTMLDivElement> = () => {

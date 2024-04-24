@@ -8,6 +8,7 @@ import ProductPage from "./features/ProductPage/ProductPage";
 import Cart from "./features/Cart/Cart";
 import Order from "./features/Order/Order";
 import TopSales from "./features/TopSales/TopSales";
+import Error from "./entities/ErrorComponent/ErrorComponent";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <><Cart /><Order /></>
+        element: <><Cart /><Order /></>,
+      },
+      {
+        path: "*",
+        Component: Error,
       }
     ],
   },

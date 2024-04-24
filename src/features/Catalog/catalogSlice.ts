@@ -6,12 +6,12 @@ import {
 } from "../../entities/Service";
 
 export interface catalogState {
-  items: ProductCard[];
-  catalogloading: boolean;
-  categories: ProductCategory[];
-  selectedCategoryId: number | null;
-  categoriesloading: boolean;
-  error: string;
+  items: ProductCard[],
+  catalogloading: boolean,
+  categories: ProductCategory[],
+  selectedCategoryId: number | null,
+  categoriesloading: boolean,
+  error: {name: string, message: string} | null,
   visibilityBtn: boolean,
   search: string,
 }
@@ -22,7 +22,7 @@ const initialState: catalogState = {
   categories: [],
   selectedCategoryId: null,
   categoriesloading: false,
-  error: "",
+  error: null,
   visibilityBtn: true,
   search: "",
 };
@@ -33,13 +33,16 @@ export const catalogSlice = createSlice({
   reducers: {
     categoriesLoadingStarted(state) {
       state.categoriesloading = true;
+      state.error = null;
     },
     categoriesLoaded(state, action) {
       state.categories = action.payload;
       state.categoriesloading = false;
+      state.error = null;
     },
     catalogLoadingStarted(state) {
       state.catalogloading = true;
+      state.error = null;
     },
     setCategoryById(state, action) {
       state.selectedCategoryId = action.payload;

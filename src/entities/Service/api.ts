@@ -9,8 +9,7 @@ export async function fetchTopSales() {
 }
 
 export async function fetchCategories() {
-  const r = await fetch(_URL + "categories");
-  const response = await r.json();
+  const response = await fetch(_URL + "categories");
   return response;
 }
 
@@ -29,14 +28,12 @@ export async function fetchCatalog(
       ((categoryId && offset) || (q && offset) ? "&" : "") +
       (offset ? "offset=" + offset : "")
     : "")
-  const r = await fetch(req);
-  const response = await r.json();
-  return response;
+      const response = await fetch(req);
+      return response;
 }
 
 export async function fetchProduct(id: string) {
-  const r = await fetch(_URL + "items/" + id);
-  const response = await r.json();
+  const response = await fetch(_URL + "items/" + id);
   return response;
 }
 
@@ -50,7 +47,7 @@ export function loadLoacalStorage() {
 }
 
 export async function fetchOrder(order: Order) {
-  await fetch(_URL + "order", {
+  return await fetch(_URL + "order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,8 +1,13 @@
+import "./Preloader4.css";
+
 export default function Preloader4() {
 
   return (
-    <div className="spinner-grow text-primary" role="status">
-      <span className="visually-hidden"></span>
-    </div>
+    <div className="loader4">
+    <div className="inner_loader4"></div>
+    <div className="inner_loader4"></div>
+    <div className="inner_loader4"></div>
+    <div className="inner_loader4"></div>
+</div>
   );
 }

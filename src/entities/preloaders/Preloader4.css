@@ -1,0 +1,39 @@
+.loader4{
+  width: 110px;
+  height: 25px;
+  margin: 50px auto 0;
+  position: relative;
+}
+.loader4 .inner_loader4{
+  background-color: #a00606;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 50px;
+  margin-right: 20px;
+  animation: dotMove 400ms linear infinite;
+}
+.loader4 .inner_loader4:first-child{
+  position: absolute;
+  left: 0;
+  animation: dotScale 400ms linear infinite;
+}
+.loader4 .inner_loader4:last-child{
+  right: 0;
+  animation: dotScale 400ms linear infinite reverse;
+  margin: 0;
+}
+@keyframes dotScale{
+  0% {
+      transform: scale(0);
+      opacity: 0;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+@keyframes dotMove{
+  0% { transform: translateX(0px); }
+  100% { transform: translateX(40px); }
+}

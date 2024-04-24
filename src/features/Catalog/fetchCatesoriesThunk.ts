@@ -13,10 +13,19 @@ export const fetchCategoriesThunk =
   async (dispatch) => {
     try {
       dispatch(categoriesLoadingStarted());
-      const response = await BosaNogaAPI.fetchCategories();
+      const r = await BosaNogaAPI.fetchCategories();
+      if (r.status < 200 || r.status > 299) {
+        const error = new Error(r.statusText);
+        error.name = r.status.toString();
+        throw error;
+      }
+      const response = await r.json();
       response.unshift({ id: null, title: "Все" });
       dispatch(categoriesLoaded(response));
     } catch (e) {
-      dispatch(loadingFailed((<Error>e).message));
+      dispatch(loadingFailed({
+        message: (<Error>e).message,
+        name: (<Error>e).name,
+      }));
     }
   };

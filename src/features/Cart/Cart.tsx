@@ -17,7 +17,7 @@ export default function Cart() {
 
   return (
     <>
-      <section className="cart">
+      {products.length > 0 && <section className="cart">
         <h2 className="text-center">Корзина</h2>
         <table className="table table-bordered">
           <thead>
@@ -49,8 +49,7 @@ export default function Cart() {
             </tr>
           </tbody>
         </table>
-      </section>
+      </section>}
     </>
-
   );
 }

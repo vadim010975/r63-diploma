@@ -1,3 +1,5 @@
+import "./Size.css";
+
 type SizeProps = {
   productSize: string,
   selected: string,
