@@ -1,0 +1,8 @@
+.banner {
+  min-height: 100px;
+}
+
+#img-banner-header {
+  margin: 0;
+  top: 40%;
+}

@@ -1,3 +1,4 @@
+import "./Main.css";
 import { FC, PropsWithChildren } from "react";
 
 const Main: FC<PropsWithChildren> = ({children}) => {
@@ -7,8 +8,8 @@ const Main: FC<PropsWithChildren> = ({children}) => {
       <div className="row">
         <div className="col">
           <div className="banner">
-            <img src="./src/img/banner.jpg" className="img-fluid" alt="К весне готовы!" />
-            <h2 className="banner-header">К весне готовы!</h2>
+            <img src="../src/img/banner.jpg" className="img-fluid" alt="К весне готовы!" />
+            <h2 id="img-banner-header" className="banner-header">К весне готовы!</h2>
           </div>
           {children}
         </div>

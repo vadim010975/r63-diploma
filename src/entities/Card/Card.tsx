@@ -1,3 +1,4 @@
+import "./Card.css";
 import { FC } from "react";
 import { ProductCard } from "../Service";
 import { useNavigate } from "react-router-dom";
